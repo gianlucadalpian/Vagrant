@@ -2,7 +2,6 @@
 # vi: set ft=ruby :
 
 #VAGRANT FILE
-# CONRAD STEIGER
 
 $script = <<'SCRIPT'
 
