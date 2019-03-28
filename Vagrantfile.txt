@@ -1,0 +1,31 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+#VAGRANT FILE
+# CONRAD STEIGER
+
+$script = <<'SCRIPT'
+
+# Add User_01
+NET USER User01 "123Hallo321" /ADD
+
+# Enable Remote Desktop
+(Get-WmiObject Win32_TerminalServiceSetting -Namespace root\cimv2\TerminalServices).SetAllowTsConnections(1,1) | Out-Null
+(Get-WmiObject -Class "Win32_TSGeneralSetting" -Namespace root\cimv2\TerminalServices -Filter "TerminalName='RDP-tcp'").SetUserAuthenticationRequired(0) | Out-Null
+Get-NetFirewallRule -DisplayName "Remote Desktop*" | Set-NetFirewallRule -enabled true
+
+#PC Information
+write-host "###### SYSTEM SETUP DONE ######"
+Get-WmiObject -Class Win32_ComputerSystem | format-table
+Get-WmiObject -Class Win32_LogicalDisk | format-table
+Get-LocalUser | format-table 
+
+SCRIPT
+
+Vagrant.configure("2") do |config1|
+	config1.vm.provider "hyperv"
+	config1.vm.network "public_network"
+	config1.vm.box = "StefanScherer/windows_2019"
+	config1.vm.hostname = "Gianluca"
+	config1.vm.provision "shell", inline: $script
+end
