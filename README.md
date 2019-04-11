@@ -120,4 +120,25 @@ vagrant up
     !     +--------------------+            +--------------------+  !
     +---------------------------------------------------------------+
     
+   
+   # Was habe ich gelernt?
+   
+   ## Github
+   Ich durfte mich erstmal mit GitHub auseinandersetzen. Ich war zu beginn ein wenig verwirrt für was das zu gebrauchen ist, jedoch habe ich nun verstanden, das es ein Codeverwaltungstool ist, welches mir ermöglich meine Projekte in Repositorys abzuspeichern und zu verwalten. Ich finde es noch cool das man andere Projekte inspizieren kann und mit anderen Leuten teilen kann. Für mich persönlich werde ich keine verwendung dafür finden, jedoch ist es gut zu wissen das es so was gibt.
+  
+  ## Vagrant
+  Vagrant ist eine Ruby-Anwendung welche es ermöglich Virtuelle Maschienen zu erstellen und zu verwalten. Ich wusste zuvor gar nicht das es eine solche Möglichkeit gibt, da ich im Berufsaltag noch nie mit sowas gearbeitet habe. Ich finde es erstaunlich wie aktuell die Betriebssysteme in der Vagrant Clound sind. Ich hatte zu beginn ein wenig Probleme mit der Strucktur vom Vagrantfile. Ich habe mich am anfang mit Hyper-V rumgeschlagen, nach dem ich die selbe Infrastruktur auf einer Virtualbox umgebung laufen lassen wollte, habe ich gemerkt dass es da komplikationen geben kann. Ich durfte viele verschiedene varianten von Vagrantbefehlen kennenlernen und werrde die in Zukunft bei gelegenheit auch anwenden. 
 
+ ## Gitkraken
+ Ich hatte in vergangenheit nie was zu tun mit Versionisirungen von Codierungen. Ich habe das Programm Gitkraken von einem Klassenkameraden empfohlen bekommen. Das Programm ist cool aufgebaut und man kann es sehr simpel mit GitHub verknüpfen. Die Versionisierung an sich habe ich zu wenig angewendet da dies für mich zu umständlich rübergekommen ist. Natürlich ist mir der Sinn und Nutzen der Versionisierung klar aber für meine Umgebung war es ein wenig zu umständlich.
+ 
+## Visual Studio Code
+Ich habe Visual Studio Code schon in Vergangenheit angewendet. Ich wusste auch das ich verschiedene Programmiersprachen installieren kann. Ich habe einmal mehr gemerkt, dass dieses Tool einfach perfekt ist um Code-Files zu beabeiten.
+
+# Reflexion LB01
+LB01 hat mich sehr interessiert und hat mir auch viel spass gemacht. Ich denke das dies eine sehr moderne Art ist, in der heutigen Informatik zu hantieren. Es war für mich sehr mühsam da ich viel mit Krankheiten zu kämpfen hatte eine solide Arbeit abzuliefern, ich denke jedoch das thema begriffen zu haben. Ich werde in Zukunft in meiner beruflichen Abreitsumgebung mit dieser Methode versuchen Projekte zu realisieren, da man mit einem Firmen standartisierten Vagrant File eine VM in wenigen sekunden erstellt hat. Die Verwaltung von VM ist in meinen Umgebungen nicht sehr Sinnvoll da wir viele verschiedene Umgebungen betreuen. Ich werde in Zukunft versuchen mehr mit Versionisierung zu arbeiten, aus dem Grund dass es besser nachzuvolziehen ist was man verändert hat. 
+
+   
+    
+
+      
