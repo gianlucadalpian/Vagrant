@@ -1,30 +1,51 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-#VAGRANT FILE
+Vagrant.configure(2) do |config|
 
-$script = <<'SCRIPT'
+  # Every Vagrant virtual environment requires a box to build off of.
+  config.vm.define "server1" do |server1|
+    server1.vm.box = "StefanScherer/windows_2019"
 
-# Add User_01
-NET USER User01 "123Hallo321" /ADD
+    server1.vm.guest = :windows
+    server1.vm.communicator = "winrm"
+    server1.vm.boot_timeout = 600
+    server1.vm.graceful_halt_timeout = 600
 
-# Enable Remote Desktop
-(Get-WmiObject Win32_TerminalServiceSetting -Namespace root\cimv2\TerminalServices).SetAllowTsConnections(1,1) | Out-Null
-(Get-WmiObject -Class "Win32_TSGeneralSetting" -Namespace root\cimv2\TerminalServices -Filter "TerminalName='RDP-tcp'").SetUserAuthenticationRequired(0) | Out-Null
-Get-NetFirewallRule -DisplayName "Remote Desktop*" | Set-NetFirewallRule -enabled true
+    server1.vm.network "private_network", ip: "192.168.1.100"
+    server1.vm.network :forwarded_port, guest: 3389, host: 3388
+    server1.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
 
-#PC Information
-write-host "###### SYSTEM SETUP DONE ######"
-Get-WmiObject -Class Win32_ComputerSystem | format-table
-Get-WmiObject -Class Win32_LogicalDisk | format-table
-Get-LocalUser | format-table 
+    server1.vm.provider "virtualbox" do |vm|
+        vm.name = "vagrant-pc"
+        vm.gui = true
+        vm.cpus = 2
+        vm.memory = 2048
 
-SCRIPT
+    end
+  end 
 
-Vagrant.configure("2") do |config1|
-	config1.vm.provider "hyperv"
-	config1.vm.network "public_network"
-	config1.vm.box = "StefanScherer/windows_2019"
-	config1.vm.hostname = "Gianluca"
-	config1.vm.provision "shell", inline: $script
+    # Every Vagrant virtual environment requires a box to build off of.
+  config.vm.define "server2" do |server2|
+    server2.vm.box = "StefanScherer/windows_2019"
+
+    server2.vm.guest = :windows
+    server2.vm.communicator = "winrm"
+    server2.vm.boot_timeout = 600
+    server2.vm.graceful_halt_timeout = 600
+
+    server2.vm.network "private_network", ip: "192.168.1.101"
+    server2.vm.network :forwarded_port, guest: 3389, host: 3388
+    server2.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+
+    server2.vm.provider "virtualbox" do |vm|
+        vm.name = "vagrant-pc"
+        vm.gui = true
+        vm.cpus = 2
+        vm.memory = 2048
+
+    end
+
+   end 
+   
 end
